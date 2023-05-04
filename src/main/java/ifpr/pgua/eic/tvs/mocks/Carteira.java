@@ -7,6 +7,7 @@ public class Carteira {
     
     private List<Acao> carteira;
     AcaoService acaoService;
+    //private AcaoServiceImpl acaoServiceImpl = new AcaoServiceImpl(); // Evitar, depender sempre de interface
 
     public Carteira(AcaoService acaoService){
         this.acaoService = acaoService;
@@ -40,6 +41,14 @@ public class Carteira {
         }
 
         return valor;
+    }
+
+    public int tamanhoCarteira(){
+        int tam = 0;
+        for (Acao acao : carteira) {
+            tam += acao.getQuatidade();
+        }
+        return tam;
     }
 
 
